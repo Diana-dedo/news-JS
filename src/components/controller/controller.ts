@@ -3,7 +3,7 @@ import { NewsResponse, SourcesResponse } from '../view/appView';
 
 class AppController extends AppLoader {
     public getSources(callback: (data: SourcesResponse) => void): void {
-        super.getResp(
+        super.getResp<SourcesResponse>(
             {
                 endpoint: 'sources',
             },
@@ -21,7 +21,7 @@ class AppController extends AppLoader {
                 
                 if (sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    super.getResp(
+                    super.getResp<NewsResponse>(
                         {
                             endpoint: 'everything',
                             options: {

@@ -17,9 +17,9 @@ class Loader {
         this.options = options;
     }
 
-    protected getResp(
+    protected getResp<T>(
         { endpoint, options = {} }: GetRespArgs,
-        callback: (data: any) => void = () => {
+        callback: (data: T) => void = () => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -47,16 +47,16 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(
+    private load<T>(
         method: string, 
         endpoint: string, 
-        callback: (data: any) => void, 
+        callback: (data: T) => void, 
         options: Record<string, string> = {}
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res: Response) => res.json())
-            .then((data: unknown) => callback(data))
+            .then((data: unknown) => callback(data as T))
             .catch((err: Error) => console.error(err));
     }
 }
