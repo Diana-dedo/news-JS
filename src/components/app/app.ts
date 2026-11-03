@@ -12,13 +12,13 @@ class App {
 
     public start(): void {
         const sourcesElement = document.querySelector('.sources');
-        
+
         if (sourcesElement) {
-            sourcesElement.addEventListener('click', (e: Event) => 
+            sourcesElement.addEventListener('click', (e: Event) =>
                 this.controller.getNews(e, (data: NewsResponse) => this.view.drawNews(data))
             );
         }
-        
+
         this.controller.getSources((data: SourcesResponse) => this.view.drawSources(data));
     }
 }
