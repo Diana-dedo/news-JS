@@ -1,10 +1,14 @@
+export enum ApiEndpoints {
+    Sources = 'sources',
+    Everything = 'everything'
+}
 interface LoaderOptions {
     apiKey: string;
     [key: string]: string;
 }
 
 interface GetRespArgs {
-    endpoint: string;
+    endpoint: ApiEndpoints;;
     options?: Record<string, string>;
 }
 
