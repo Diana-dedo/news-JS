@@ -9,6 +9,7 @@
     font-family: Arial, sans-serif;
     border-radius: 5px;
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
 }
 
 .news__item:hover .news__meta-photo {
@@ -165,11 +166,20 @@
     }
 }
 
-.news__item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
-.news__item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.news__read-more a {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.news__read-more a:hover {
+    transform: scale(1.05);
+    color: #00bcd4;
+    text-decoration: underline;
 }
