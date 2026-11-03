@@ -8,7 +8,7 @@ interface LoaderOptions {
 }
 
 interface GetRespArgs {
-    endpoint: ApiEndpoints;;
+    endpoint: ApiEndpoints;
     options?: Record<string, string>;
 }
 
